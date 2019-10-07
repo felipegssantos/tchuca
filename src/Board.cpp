@@ -1,30 +1,40 @@
 #include <Board.h>
-#include <Status.h>
 #include <iostream>
+#include <vector>
 
-Hole* Board::buildBoard(int numHoles) {
-    // TODO: return a vector of numHoles Hole variables
-    // where one Hole has (population=0, rumba=true)
-    // and all others have (population=2, rumba=false)
+using std::cout;
+using std::endl;
+
+void Board::buildBoard(int numHoles){
+    holes[0] = Hole(0, true); // this is the rumba
+    for (int i = 1; i < numHoles; i++) {
+        holes[i] = Hole(2);
+    }
 }
 
-Board::Board(int numHoles): 
-    holes(buildBoard(numHoles))
+Board::Board(int numHoles): numHoles(numHoles)
 {
+    buildBoard(numHoles);
+}
+
+int Board::nextHole(int currentHole) {
+    int nextHole = currentHole + 1;
+    return (nextHole >= numHoles) ? 0 : nextHole;
 }
 
 int Board::play(int selectedHole){
-    // TODO: play (harvest and seed according to rules)
-    // returns current hole index after seeding is complete.
+    int seeds = holes[selectedHole].harvest();
+    while (seeds > 0) {
+        selectedHole = nextHole(selectedHole);
+        seeds = holes[selectedHole].seed(seeds);
+    }
+    // TODO: confirm rules - should I return nextHole(selectedHole) instead?
+    return selectedHole;
 }
 
 void Board::printStatus(){
-    std::string status = "";
-    /*
-    TODO:
-        for hole in holes
-            string += "<holeIndex>: <holePopulation>"
-    (and somehow highlight current hole!)
-    */
-    std::cout << status;
+    for (int i=0; i < numHoles; i++) {
+        cout << i << " : " << holes[i].getPopulation() << " | ";
+    }
+    cout << endl;
 }

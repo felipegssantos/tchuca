@@ -4,9 +4,11 @@
 
 class Board {
     private:
-        Hole* holes;
-        Hole* buildBoard(int numHoles);
+        std::vector<Hole> holes;
+        void buildBoard(int numHoles);
         int currentHole;
+        int numHoles;
+        int nextHole(int currentHole);
 
     public:
         Board(int numHoles);
