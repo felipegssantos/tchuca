@@ -9,8 +9,8 @@ class Hole {
     public:
         Hole(int population);
         Hole(int population, bool rumba);
-        bool isEmpty();
-        bool isRumba();
+        bool isEmpty() const { return population > 0; };
+        bool isRumba() const { return rumba; };
         int harvest();
         int seed(int numSeeds);
 };
