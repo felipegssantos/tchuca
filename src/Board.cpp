@@ -6,9 +6,9 @@ using std::cout;
 using std::endl;
 
 void Board::buildBoard(int numHoles){
-    holes[0] = Hole(0, true); // this is the rumba
+    holes.push_back(Hole(0, true)); // this is the rumba
     for (int i = 1; i < numHoles; i++) {
-        holes[i] = Hole(2);
+        holes.push_back(Hole(2));
     }
 }
 

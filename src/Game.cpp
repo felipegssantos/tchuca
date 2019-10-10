@@ -13,7 +13,7 @@ GameStatus play(Board board, int holeIndex) {
     } else if (currentHole.isRumba()) {
         GameStatus status = board.checkWinCondition();
         if (status == GameStatus::Ongoing) {
-            cout << "Insira a próxima casa que deseja colher";
+            cout << "Insira a próxima casa que deseja colher: ";
             cin >> currentHoleIndex;
         } else {
             return status;
@@ -24,7 +24,7 @@ GameStatus play(Board board, int holeIndex) {
 
 int main(){
 
-    cout << "Insira o número total de casas (incluindo a rumba) << endl";
+    cout << "Insira o número total de casas (incluindo a rumba): ";
     int numHoles;
     cin >> numHoles;
     Board board = Board(numHoles);
