@@ -16,5 +16,5 @@ class Board {
         Hole getHole(int index);
         void printStatus();
         void printStatus(int currentHole);
-        GameStatus checkWinCondition();
+        GameStatus checkWinCondition(int currentHoleIndex);
 };

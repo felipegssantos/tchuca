@@ -10,7 +10,7 @@ class Hole {
         Hole()=default;
         Hole(int population);
         Hole(int population, bool rumba);
-        bool isEmpty() const { return population > 0; };
+        bool wasEmpty() const { return population == 1; };
         bool isRumba() const { return rumba; };
         int getPopulation() const { return population; };
         int harvest();

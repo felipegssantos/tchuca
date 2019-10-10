@@ -53,7 +53,12 @@ void Board::printStatus(int currentHole){
     cout << endl;
 }
 
-GameStatus Board::checkWinCondition() {
-    Hole rumba = holes[0];
-    return rumba.getPopulation() == 2 * (numHoles - 1)? GameStatus::Won : GameStatus::Lost;
+GameStatus Board::checkWinCondition(int currentHoleIndex) {
+    Hole currentHole = holes[currentHoleIndex];
+    if (currentHole.isRumba()) { // this is the rumba's index
+        bool rumbaIsFull = currentHole.getPopulation() == 2 * (numHoles - 1);
+        return rumbaIsFull ? GameStatus::Won : GameStatus::Ongoing;
+    }
+    else if (currentHole.wasEmpty()) return GameStatus::Lost;
+    else return GameStatus::Ongoing;
 }
