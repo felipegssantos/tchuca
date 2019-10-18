@@ -13,7 +13,7 @@ class Hole(var population: Int) {
     }
 
     def seed(numSeeds: Int): Int = {
-        if (isEmpty) {
+        if (numSeeds == 1 && isEmpty) {
             throw new RuntimeException("Game Over!")
         } else {
             population += 1
