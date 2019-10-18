@@ -1,4 +1,4 @@
-package tchuca.pieces
+package pieces
 
 class Hole(var population: Int) {
 

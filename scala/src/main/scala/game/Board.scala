@@ -1,6 +1,6 @@
-package tchuca.game
+package game
 
-import tchuca.pieces.{Hole, Rumba}
+import pieces.{Hole, Rumba}
 
 class Board(numHoles: Int) {
 

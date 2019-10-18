@@ -1,4 +1,4 @@
-package tchuca.game
+package game
 
 object Game {
     
@@ -6,7 +6,7 @@ object Game {
         // TODO
     }
 
-    def play(board: Board, holeIndex: Hole): String = {
+    def play(board: Board, holeIndex: Int): String = {
         // TODO
     }
 }
