@@ -29,12 +29,14 @@ class Board(numHoles: Int) {
 
     def getHole(index: Int): Hole = holes(index)
 
-    def printStatus(): Unit = {
+    def getStatus: String = {
         // TODO
+        ""
     }
 
-    def printStatus(currentHoleIndex: Int): Unit = {
+    def getStatus(currentHoleIndex: Int): String = {
         // TODO
+        ""
     }
 
     def checkWinCondition(currentHoleIndex: Int): String = {
