@@ -8,7 +8,7 @@ class HoleTest extends FlatSpec {
     val hole = new Hole(2)
     val seeds = hole.harvest
     assert(hole.getPopulation == 0)
-    assert(seeds == 2)
+    assertResult(2)(seeds)
   }
 
   "A Hole(0)" should "throw a RuntimeException when 1 seed is put into it" in {
