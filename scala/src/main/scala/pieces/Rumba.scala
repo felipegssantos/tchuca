@@ -1,10 +1,10 @@
 package pieces
 
-class Rumba(var population: Int = 0) extends Hole(population) {
+class Rumba(var rumbaPopulation: Int = 0) extends Hole(rumbaPopulation) {
 
-    override def seed(numSeeds: Int): Unit = {
-        population += 1
-        seed - 1
+    override def seed(numSeeds: Int): Int = {
+        rumbaPopulation += 1
+        numSeeds - 1
     }
     
 }

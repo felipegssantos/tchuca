@@ -17,7 +17,7 @@ class Hole(var population: Int) {
             throw new RuntimeException("Game Over!")
         } else {
             population += 1
-            seed - 1
+            numSeeds - 1
         }
     }
 

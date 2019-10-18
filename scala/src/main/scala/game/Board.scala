@@ -8,10 +8,12 @@ class Board(numHoles: Int) {
 
     private def setHoles(numHoles: Int): Seq[Hole] = {
         // TODO
+        Seq[Hole]()
     }
 
     private def nextHoleIndex(currentHoleIndex: Int): Int = {
         // TODO
+        0
     }
 
     def play(selectedHoleIndex: Int): Int = {
@@ -25,9 +27,9 @@ class Board(numHoles: Int) {
         selectedHoleIndex
     }
 
-    def getHole(index: Int) = holes(index)
+    def getHole(index: Int): Hole = holes(index)
 
-    def printStatus: Unit = {
+    def printStatus(): Unit = {
         // TODO
     }
 
@@ -38,6 +40,7 @@ class Board(numHoles: Int) {
     def checkWinCondition(currentHoleIndex: Int): String = {
         // TODO: implement it
         // TODO: change return type to something like C++ enum class
+        ""
     }
 
 }
