@@ -15,7 +15,13 @@ class Board(numHoles: Int) {
     }
 
     def play(selectedHoleIndex: Int) = {
-        // TODO
+        var seeds: Int = holes(selectedHoleIndex).harvest()
+        // TODO: use recursion instead
+        while (seeds > 0) {
+            selectedHoleIndex = nextHole(selectedHole)
+            seeds = holes(selectedHole).seed(seeds)
+        }
+        return selectedHoleIndex
     }
 
     def getHole(index: Int) = holes(index)
