@@ -12,4 +12,13 @@ trait BaseHole {
 
   def seed(numSeeds: Int): Int
 
+  def toRepr: String = {
+    s" ${getPopulation} "
+  }
+
+  def toRepr(isCurrent: Boolean): String = {
+    if (isCurrent) s" ${getPopulation}*"
+    else toRepr
+  }
+
 }
