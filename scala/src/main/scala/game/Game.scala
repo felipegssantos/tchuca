@@ -21,7 +21,7 @@ object Game {
 
     def printStatus(implicit board: Board): Unit = println(board.getStatus)
 
-    def printStatus(currentHoleIndex: Int)(implicit board: Board): Unit = println(board.getStatus)
+    def printStatus(currentHoleIndex: Int)(implicit board: Board): Unit = println(board.getStatus(currentHoleIndex))
 
     @tailrec
     def play(holeIndex: Int)(implicit board: Board): GameStatus = {

@@ -29,14 +29,11 @@ class Board(numHoles: Int) {
     def getHole(index: Int): Hole = holes(index)
 
     def getStatus: String = {
-        holes.map(_.toRepr).mkString("|")
+        holes.zipWithIndex.map{ case (hole, i) => hole.toRepr(i) }.mkString("|")
     }
 
     def getStatus(currentHoleIndex: Int): String = {
-        val isCurrent = (0 to numHoles).map(_ == currentHoleIndex)
-        holes.zip(isCurrent).map {
-            case (hole, current) => hole.toRepr(current)
-        }.mkString("|")
+        holes.zipWithIndex.map{ case (hole, i) => hole.toRepr(i, currentHoleIndex == i) }.mkString("|")
     }
 
     def isRumbaFull: Boolean = (holes.head.getPopulation == 2 * (numHoles - 1))

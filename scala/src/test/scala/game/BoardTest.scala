@@ -21,11 +21,11 @@ class BoardTest extends FlatSpec with PrivateMethodTester {
   }
 
   it should "be able to display the board state" in {
-    assertResult(" 0 | 2 | 2 | 2 | 2 ")(board.getStatus)
+    assertResult(" 0:0 | 1:2 | 2:2 | 3:2 | 4:2 ")(board.getStatus)
   }
 
   it should "be able to display the board state highlighting the current hole" in {
-    assertResult(" 0 | 2 | 2*| 2 | 2 ")(board.getStatus(2))
+    assertResult(" 0:0 | 1:2 | 2:2*| 3:2 | 4:2 ")(board.getStatus(2))
   }
 
 
