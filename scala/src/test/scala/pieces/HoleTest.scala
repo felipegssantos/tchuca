@@ -16,11 +16,6 @@ class HoleTest extends FlatSpec {
     assert(!hole.isEmpty)
   }
 
-  "A Hole(0)" should "throw a RuntimeException when 1 seed is put into it" in {
-    val hole = new Hole(0)
-    assertThrows[RuntimeException](hole.seed(1))
-  }
-
   it should "return true when isEmpty is invoked" in {
     val hole = new Hole(0)
     assert(hole.isEmpty)

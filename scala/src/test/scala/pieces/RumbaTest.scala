@@ -16,12 +16,6 @@ class RumbaTest extends FlatSpec {
     assert(!rumba.isEmpty)
   }
 
-  "A Rumba(0)" should "have population equal to 1 when 1 seed is put into it" in {
-    val rumba = new Rumba(0)
-    rumba.seed(1)
-    assertResult(1)(rumba.getPopulation)
-  }
-
   it should "return true when isEmpty is invoked" in {
     val rumba = new Rumba(0)
     assert(rumba.isEmpty)
