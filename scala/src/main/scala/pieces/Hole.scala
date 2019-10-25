@@ -1,6 +1,8 @@
 package pieces
 
-class Hole(var population: Int) {
+class Hole(private var population: Int) extends BaseHole {
+
+    val diameter = 1
 
     def getPopulation: Int = population
 
@@ -13,12 +15,8 @@ class Hole(var population: Int) {
     }
 
     def seed(numSeeds: Int): Int = {
-        if (numSeeds == 1 && isEmpty) {
-            throw new RuntimeException("Game Over!")
-        } else {
-            population += 1
-            numSeeds - 1
-        }
+        population += 1
+        numSeeds - 1
     }
 
 }
