@@ -39,6 +39,6 @@ class Board(numHoles: Int) {
         }.mkString("|")
     }
 
-    def isRumbaFull(currentHoleIndex: Int): Boolean = holes.head.getPopulation == 2 * (numHoles - 1)
+    def isRumbaFull: Boolean = (holes.head.getPopulation == 2 * (numHoles - 1))
 
 }
