@@ -13,10 +13,7 @@ class Board(numHoles: Int) {
         Seq(rumba) ++ commonHoles
     }
 
-    private def nextHoleIndex(currentHoleIndex: Int): Int = {
-        // TODO
-        0
-    }
+    private def nextHoleIndex(currentHoleIndex: Int): Int = (currentHoleIndex + 1) % numHoles
 
     def play(selectedHoleIndex: Int): Int = {
         var seeds: Int = holes(selectedHoleIndex).harvest
@@ -32,19 +29,16 @@ class Board(numHoles: Int) {
     def getHole(index: Int): Hole = holes(index)
 
     def getStatus: String = {
-        // TODO
-        ""
+        holes.map(_.toRepr).mkString("|")
     }
 
     def getStatus(currentHoleIndex: Int): String = {
-        // TODO
-        ""
+        val isCurrent = (0 to numHoles).map(_ == currentHoleIndex)
+        holes.zip(isCurrent).map {
+            case (hole, current) => hole.toRepr(current)
+        }.mkString("|")
     }
 
-    def checkWinCondition(currentHoleIndex: Int): String = {
-        // TODO: implement it
-        // TODO: change return type to something like C++ enum class
-        ""
-    }
+    def isRumbaFull(currentHoleIndex: Int): Boolean = holes.head.getPopulation == 2 * (numHoles - 1)
 
 }
