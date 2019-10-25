@@ -23,7 +23,7 @@ class Board(numHoles: Int) {
             index = nextHoleIndex(index)
             seeds = holes(index).seed(seeds)
         }
-        selectedHoleIndex
+        index
     }
 
     def getHole(index: Int): Hole = holes(index)
