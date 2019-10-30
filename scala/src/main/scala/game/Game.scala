@@ -9,7 +9,7 @@ object Game {
 
     def main(args: Array[String]): Unit = {
         // TODO
-        implicit val board: Board = new Board(5)
+        implicit val board: Board = Board(5)
         printStatus
         val firstHoleIndex = StdIn.readLine("Escolha um buraco para iniciar: ").toInt
         val gameResult = play(firstHoleIndex)

@@ -20,3 +20,9 @@ class Hole(private var population: Int) extends BaseHole {
     }
 
 }
+
+object Hole {
+
+    def unapply(h: Hole): Option[(Int, Int)] = Some(h.population, h.diameter)
+
+}
