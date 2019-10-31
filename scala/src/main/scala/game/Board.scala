@@ -35,7 +35,6 @@ class Board(holes: Seq[Hole]) {
 
 object Board {
     private def setHoles(numHoles: Int): Seq[Hole] = {
-        // TODO: move to a companion object
         val rumba = new Rumba(0)
         val commonHoles = for (_ <- 1 until numHoles) yield new Hole(2)
         Seq(rumba) ++ commonHoles
