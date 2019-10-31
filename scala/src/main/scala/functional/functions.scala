@@ -30,9 +30,11 @@ object functions {
   def seedAll(board: Board, holeIndex: Int, numSeeds: Int): (Board, Int) = {
     // TODO: seed cyclically until all seeds are used
     // TODO: return updated board and last index of last seeded hole
+    (board, 0)
   }
 
   def harvestAndSeedAll(board: Board, holeIndex: Int): (Board, Int) = {
+    // TODO: try to use more explicit function composition
     val (harvestedBoard, seeds) = harvest(board, holeIndex)
     val nextHoleIndex = (holeIndex + 1) % board.holes.length
     seedAll(harvestedBoard, nextHoleIndex, seeds)
