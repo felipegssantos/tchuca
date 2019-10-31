@@ -4,6 +4,8 @@ import pieces.{Hole, Rumba}
 
 class Board(holes: Seq[Hole]) {
 
+    private def numHoles = holes.length
+
     private def nextHoleIndex(currentHoleIndex: Int): Int = (currentHoleIndex + 1) % numHoles
 
     def play(selectedHoleIndex: Int): Int = {

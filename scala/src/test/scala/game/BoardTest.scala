@@ -8,7 +8,7 @@ class BoardTest extends FlatSpec with PrivateMethodTester {
   private val setHoles = PrivateMethod[Seq[Hole]]('setHoles)
   private val next = PrivateMethod[Int]('nextHoleIndex)
 
-  private val board = new Board(5)
+  private val board = Board(5)
 
   "A new Board(5)" should "contain an empty Rumba and 4 holes with 2 seeds each" in {
     val holes: Seq[Hole] = board invokePrivate setHoles(5) // hack to access what should be board.holes
