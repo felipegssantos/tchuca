@@ -4,10 +4,10 @@ import scala.annotation.tailrec
 
 object functions {
 
-  def buildBoard(numHoles: Int): Seq[BaseHole] = {
+  def buildBoard(numHoles: Int): Board = {
     val rumba = Rumba(0)
     val commonHoles = for (_ <- 1 until numHoles) yield Hole(2)
-    Seq(rumba) ++ commonHoles
+    Board(Seq(rumba) ++ commonHoles)
   }
 
   def harvest(board: Board, holeIndex: Int): (Board, Int) = {
