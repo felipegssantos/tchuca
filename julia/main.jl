@@ -2,18 +2,18 @@ abstract type BaseHole end
 
 mutable struct Hole <: BaseHole
     diameter::Real
-    population::Integer
+    population::Int
 
-    function Hole(population::Integer)
+    function Hole(population::Int)
         new(1,population)
     end
 end
 
 mutable struct Rumba <: BaseHole
     diameter::Real
-    population::Integer
+    population::Int
 
-    function Rumba(population::Integer)
+    function Rumba(population::Int)
         new(4,population)
     end
 end
@@ -21,7 +21,7 @@ end
 mutable struct Board
     holes::Array{BaseHole}
 
-    function Board(numHoles::Integer)
+    function Board(numHoles::Int)
         holes = [(i > 1 ? Hole(2) : Rumba(0)) for i in 1:numHoles]
         new(holes)
     end
@@ -44,4 +44,7 @@ end
 # TODO: print board highlighting current hole
 # TODO: implement the rest of the game
 board = Board(5)
+print("Escolha o primeiro buraco para colher: ")
+hole_index = parse(Int, readline(stdin))
+println(hole_index)
 show(board)
