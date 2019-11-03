@@ -25,3 +25,7 @@ end
 function Base.show(io::IO, hole::Rumba)
     print(io, " $(hole.population) ")
 end
+
+harvest(hole::Hole) = hole.population
+
+seed(hole::Hole) = Hole(hole.population + 1)

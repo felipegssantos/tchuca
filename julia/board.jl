@@ -14,3 +14,15 @@ function Base.show(io::IO, board::Board)
     output = join(output, "|")
     print(output)
 end
+
+function harvest&seedall(board::Board, holeIndex::Int)
+    seeds = harvest(board.holes(holeIndex))
+    seedall(board, nextHole(board, holeIndex))
+end
+
+function seedall(board::Board, holeIndex::Int)
+    # TODO
+    # Ideas: use an cyclical iterator; use an "until"-like macro;
+end
+
+nextHole(board::Board, holeIndex::Int) = (holeIndex + 1) % len(board.holes)
