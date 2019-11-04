@@ -26,6 +26,6 @@ function Base.show(io::IO, hole::Rumba)
     print(io, " $(hole.population) ")
 end
 
-harvest(hole::Hole) = hole.population
+harvest(hole::BaseHole) = hole.population
 
-seed(hole::Hole) = Hole(hole.population + 1)
+seed(hole::BaseHole) = typeof(hole)(hole.population + 1)

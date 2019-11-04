@@ -10,18 +10,33 @@ function Base.show(io::IO, board::Array{BaseHole})
     print(output)
 end
 
-function harvest&seedall(board::Array{BaseHole}, holeIndex::Int)
-    seeds = harvest(board[holeIndex])
-    seedall(board, nextHole(board, holeIndex) seeds)
+function harvest_then_seedall(board::Array{BaseHole}, holeindex::Int)
+    seeds, newboard = harvest(board, holeindex)
+    seedall(newboard, nexthole(newboard, holeindex), seeds)
 end
 
-function seedall(board::Array{BaseHole}, holeIndex::Int, numSeeds::Int)
-    # TODO
-    # Ideas: use an cyclical iterator; use an "until"-like macro; use recursion
+function harvest(board::Array{BaseHole}, holeindex::Int)
+    hole = board[holeindex]
+    seeds = harvest(hole)
+    HoleType = typeof(hole)
+    newboard = [i == holeindex ? HoleType(0) : board[i] for i in eachindex(board)]
+    seeds, newboard
 end
 
-function seed(board::Array{BaseHole}, holeIndex::Int)
-    [i == holeIndex ? seed(hole) : hole for hole, i in enumerate(board)]
+function seedall(board::Array{BaseHole}, holeindex::Int, numSeeds::Int)
+    newboard = seed(board, holeindex)
+    if numSeeds > 1
+        nextindex = nexthole(board, holeindex)
+        seedall(newboard, nextindex, numSeeds - 1)
+    elseif numSeeds > 0
+        (newboard, holeindex)
+    else
+        error("Number of seeds must be positive; found $numSeeds")
+    end
 end
 
-nextHole(board::Array{BaseHole}, holeIndex::Int) = (holeIndex + 1) % size(board)[1]
+function seed(board::Array{BaseHole}, holeindex::Int)
+    [i == holeindex ? seed(hole) : hole for (i, hole) in enumerate(board)]
+end
+
+nexthole(board::Array{BaseHole}, holeindex::Int) = holeindex < size(board)[1] ? holeindex + 1 : 1
