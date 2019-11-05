@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Tchuca</title>
+        <script>
+            MAX_HOLES = 5;
+
+            function seed(id) {
+                var doc = document.getElementById(id);
+                var x = Number(doc.innerHTML);
+                doc.innerHTML = x + 1;
+            }
+
+            function setHoles(num) {
+                for (var i = 1; i < MAX_HOLES; i++) {
+                    console.log(`Updating hole ${i}`);
+                    document.getElementById(`hole${i}`).style.display = i < num ? 'block' : 'none';
+                }
+                // TODO: restart board state whenever this function rusn
+            }
+        </script>
+    </head>
+
+    <body>
+
+        <h1>Tchuca</h1>
+
+        <h2>
+            Número de buracos: <input type="number" name="num_holes" min=1 max=5 step=1 onchange='setHoles(this.value)'>
+        </h2>
+
+        <button onclick='seed("rumba")'>
+            Rumba
+            <div id="rumba">0</div>
+        </button>
+
+        <!-- TODO: change all holes such that the entire hole can be hidden by setHoles function -->
+        <button onclick='seed("hole1")'>
+            Buraco
+            <div id="hole1">0</div>
+        </button>
+
+        <button onclick='seed("hole2")'>
+            Buraco
+            <div id="hole2">0</div>
+        </button>
+
+        <button onclick='seed("hole3")'>
+            Buraco
+            <div id="hole3">0</div>
+        </button>
+
+        <button onclick='seed("hole4")'>
+            Buraco
+            <div id="hole4">0</div>
+        </button>
+
+        <script>window.alert("Escolha o número de buracos!")</script>
+
+    </body>
+</html>
