@@ -17,3 +17,8 @@ button.hole {
     height: 70px;
     background-color: deepskyblue;
 }
+
+.board { /* TODO: fix width */
+    padding: 10px;
+    min-width: 1000px;
+}
