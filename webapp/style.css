@@ -1,15 +1,19 @@
 button {
-    padding: 10px 5px;
+    padding: 10px 10px;
     margin: auto 5px;
     font-size: 16px;
+    border-style: solid;
+    border-radius: 50%;
 }
 
 button.rumba {
     width: 150px;
+    height: 150px;
     background-color: aquamarine;
 }
 
 button.hole {
     width: 70px;
+    height: 70px;
     background-color: deepskyblue;
 }
