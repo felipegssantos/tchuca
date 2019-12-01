@@ -1,0 +1,15 @@
+button {
+    padding: 10px 5px;
+    margin: auto 5px;
+    font-size: 16px;
+}
+
+button.rumba {
+    width: 150px;
+    background-color: aquamarine;
+}
+
+button.hole {
+    width: 70px;
+    background-color: deepskyblue;
+}
