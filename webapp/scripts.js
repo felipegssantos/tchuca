@@ -15,7 +15,7 @@ function setHoles(num) {
         for (var i = 1; i < MAX_HOLES; i++) {
             console.log(`Updating hole ${i}`);
             var element = document.getElementById(`hole${i}`)
-            element.style.display = i < num ? 'block' : 'none';
+            element.style.visibility = i < num ? 'visible' : 'hidden';
             element.innerHTML = 2;
         }
     }
